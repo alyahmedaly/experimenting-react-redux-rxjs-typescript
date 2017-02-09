@@ -23,7 +23,7 @@ export const loginReducer = (state = initState, action: login.Actions): LoginSta
                 sessionId: action.payload.sessionId
             };
         case login.ActionTypes.LOGOUT_SUCCESS:
-            return { ...state, isAuth: false,username:null,sessionId:null };
+            return { ...state, isAuth: false, username: null, sessionId: null };
         default:
             return state;
     }

@@ -2,9 +2,9 @@ import * as React from 'react';
 import { IndexRedirect, Route } from 'react-router';
 import { Store } from 'redux';
 import { push } from 'react-router-redux';
-
-import { PageNotFound, Home } from './components';
 import Login from './components/login';
+import PageNotFound from './components/page-not-found';
+import Home from './components/home';
 import InternalLayout from './components/internal-layout';
 import VideoList from './components/video-list';
 import VideoDetails from './components/video-details';

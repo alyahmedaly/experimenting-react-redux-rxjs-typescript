@@ -1,10 +1,13 @@
 import { Epic, combineEpics } from 'redux-observable';
 import {
-    ActionTypes, LOADVideosSuccessAction,
-    LOADVideoByIdAction, LOADVideoByIdSuccessAction,
-    LOADVideoSuggestionsAction, LOADVideoSuggestionsSuccessAction,
-    LOADVideosFailsAction, LOADVideoByIdFailsAction, LOADVideoSuggestionsFailsAction
+    loadVideosSuccessAction,
+    loadVideoByIdSuccessAction,
+    loadVideoSuggestionsSuccessAction,
+    loadVideosFailsAction, loadVideoByIdFailsAction, loadVideoSuggestionsFailsAction
 } from '../actions/video';
+import {
+    ActionTypes, LOADVideoByIdAction, LOADVideoSuggestionsAction
+} from '../actions/video-types';
 import { videosServiceInstance } from '../services/videosService';
 import { Action } from 'redux';
 import { AppState } from '../store/appState';
@@ -15,8 +18,8 @@ const LoadVideosEpic: Epic<Action, AppState> = (action$) => action$
     .mergeMap(() => {
         return videosServiceInstance
             .getAll()
-            .map(data => new LOADVideosSuccessAction(data))
-            .catch((error) => Observable.of(new LOADVideosFailsAction(error)));
+            .map(data => loadVideosSuccessAction(data))
+            .catch((error) => Observable.of(loadVideosFailsAction(error)));
     });
 
 const LoadVideoByIdEpic: Epic<Action, AppState> = (action$) => action$
@@ -25,8 +28,8 @@ const LoadVideoByIdEpic: Epic<Action, AppState> = (action$) => action$
     .mergeMap((id) => {
         return videosServiceInstance
             .getVideobyId(id)
-            .map(data => new LOADVideoByIdSuccessAction(data.data))
-            .catch((error) => Observable.of(new LOADVideoByIdFailsAction(error)));
+            .map(data => loadVideoByIdSuccessAction(data.data))
+            .catch((error) => Observable.of(loadVideoByIdFailsAction(error)));
     });
 
 const LoadVideoSuggestionsEpic: Epic<Action, AppState> = (action$) => action$
@@ -36,8 +39,8 @@ const LoadVideoSuggestionsEpic: Epic<Action, AppState> = (action$) => action$
         return videosServiceInstance
             .getAll(payload.skip, payload.limit)
             .map(data => data.data)
-            .map(data => new LOADVideoSuggestionsSuccessAction(data))
-            .catch((error) => Observable.of(new LOADVideoSuggestionsFailsAction(error)));
+            .map(data => loadVideoSuggestionsSuccessAction(data))
+            .catch((error) => Observable.of(loadVideoSuggestionsFailsAction(error)));
     });
 
 export default combineEpics(LoadVideosEpic, LoadVideoByIdEpic, LoadVideoSuggestionsEpic); 

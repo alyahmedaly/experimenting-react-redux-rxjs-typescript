@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { AppState } from '../store/appState';
 import { Action } from 'redux';
 import { connect } from 'react-redux';
-import { LOADVideosAction, PlayVideoAction } from '../actions/video';
+import { loadVideosAction, playVideoAction } from '../actions/video';
 
 class VideoList extends React.Component<VideoListProps, any> {
 
@@ -64,8 +64,8 @@ function mapStateToProps(state: AppState, ownprops: any) {
 
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
-        loadVideos: () => dispatch(new LOADVideosAction()),
-        play: (item) => dispatch(new PlayVideoAction(item))
+        loadVideos: () => dispatch(loadVideosAction()),
+        play: (item) => dispatch(playVideoAction(item))
     };
 }
 

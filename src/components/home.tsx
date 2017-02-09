@@ -1,11 +1,7 @@
 import * as React from 'react';
 
-export class Home extends React.Component<React.Props<null>, any> {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
-}
+const Home: React.SFC<React.Props<void>> = ({children}) => {
+  return (<div>{children}</div>);
+};
+
+export default Home;

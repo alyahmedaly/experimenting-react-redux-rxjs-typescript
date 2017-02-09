@@ -1,4 +1,5 @@
-import * as video from '../actions/video';
+import * as video from '../actions/video-types';
+
 import { VideoItem } from '../models/video-item';
 export interface VideoState {
     videos: VideoItem[];

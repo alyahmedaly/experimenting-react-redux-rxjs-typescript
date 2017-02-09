@@ -5,7 +5,7 @@ import { VideoItem as VideoItemModel } from '../models/video-item';
 import { RouteComponentProps } from 'react-router';
 import { AppState } from '../store/appState';
 import { connect } from 'react-redux';
-import { LOADVideoByIdAction, LOADVideoSuggestionsAction, PlayVideoAction } from '../actions/video';
+import { loadVideoByIdAction, loadVideoSuggestionsAction, playVideoAction } from '../actions/video';
 import { Action } from 'redux';
 
 class VideoDetails extends React.Component<VideoDetailsProps, any> {
@@ -102,10 +102,10 @@ interface VideoDetailsProps extends RouteComponentProps<VideoDetails, any> {
 function mapDispatchToProps(dispatch: (action: Action) => void) {
     return {
         loadVideo: (id: string) =>
-            dispatch(new LOADVideoByIdAction(id)),
+            dispatch(loadVideoByIdAction(id)),
         getSuggestions: (payload: { skip: number, limit: number }) =>
-            dispatch(new LOADVideoSuggestionsAction(payload)),
-        play: (item) => dispatch(new PlayVideoAction(item))
+            dispatch(loadVideoSuggestionsAction(payload)),
+        play: (item) => dispatch(playVideoAction(item))
     };
 }
 

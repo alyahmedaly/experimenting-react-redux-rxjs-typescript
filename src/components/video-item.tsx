@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { RouteComponentProps, Link } from 'react-router';
+import { Link } from 'react-router';
 import { AppState } from '../store/appState';
 import { connect } from 'react-redux';
 import { VideoItem as VideoItemModel } from '../models/video-item';
 
-class VideoItem extends React.Component<VideoItemProps, any> {
+class VideoItem extends React.Component<VideoItemProps, void> {
     videoControl: HTMLVideoElement;
     render() {
         return (
@@ -47,7 +47,7 @@ class VideoItem extends React.Component<VideoItemProps, any> {
     }
 }
 
-interface VideoItemProps extends RouteComponentProps<VideoItem, any> {
+interface VideoItemProps extends React.Props<VideoItem> {
     _id: string;
     name: string;
     url: string;
