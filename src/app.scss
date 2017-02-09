@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'src/assets/scss/base/_variables';
+@import 'src/assets/scss/base/_functions';
+@import 'src/assets/scss/base/_mixins';
+@import 'src/assets/scss/base/_reset';
+$icon-font-path: "../src/assets/fonts/bootstrap/";
+@import '../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap';
+@import 'src/assets/scss/base/_typography';
+@import 'src/assets/scss/base/_base';
+@import 'src/assets/scss/base/_responsive';
+@import 'src/assets/scss/layout/_app-header';
+@import 'src/assets/scss/layout/_layout';
+@import 'src/assets/scss/pages'

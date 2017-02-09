@@ -1,0 +1,25 @@
+@import 'base/_variables';
+
+:host{
+    text-align: left;
+    display: block;
+    padding-bottom: 3px;
+}
+
+.star{
+    font-size: 20px;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star+.star{
+    margin-left: 3px;
+}
+
+.star.star-on{
+    color:$yellow-base;
+}
+
+.star.star-high{
+    color:$orange-base;
+}

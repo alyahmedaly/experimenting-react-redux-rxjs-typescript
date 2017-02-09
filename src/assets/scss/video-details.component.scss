@@ -1,0 +1,25 @@
+.video-details-component {
+    .video-details-item {
+        .title {
+            font-size: 3rem;
+        }
+        video {
+            width: 100%;
+        }
+        .rating {
+            margin: 10px 0px;
+        }
+
+        .desc {
+            line-height: 1.5em;
+            font-size: 2rem;
+        }
+    }
+
+    .suggestion-list {
+        h4 {
+            text-transform: uppercase;
+            line-height: 23px;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.spinner {
+    height: 365px;
+    text-align: center;
+
+    &::after {
+        content: 'LOADING ...';
+        text-align: center;
+        margin-top: 20px;
+        display: block;
+    }
+
+    img {
+        margin-top: 80px;
+    }
+}
